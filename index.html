@@ -52,6 +52,33 @@
     </footer>
   </main>
  <script>
+
+let myDate = new Date();
+let myHour = myDate.getHours();
+
+if (myHour < 12) {
+    // alert("Good Morning?");
+    mySentence = "Good Morning";
+    myColor = "blue";
+} else {
+    // alert("Good Afternoon?");
+    mySentence = "Good Afternoon";
+    myColor = "green";
+}
+
+document.getElementById("mydiv").innerHTML = mySentence;
+document.body.style.backgroundColor = myColor;
+
+
+
+
+
+
+
+
+
+
+
     document.getElementById("html-checker").setAttribute("href","https://validator.w3.org/nu/?doc=" + location.href);
     document.getElementById("css-checker").setAttribute("href","https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);  
  </script>
