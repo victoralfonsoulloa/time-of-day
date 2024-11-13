@@ -41,6 +41,7 @@
 	</header>
     <main>
 	 <header><h3>A JavaScript Project by YOUR NAME HERE</h3></header>
+	 <h3 id="my-greeting">Greeting goes here!</h3>
 	    <p>Explain what your page does and how it works here!</p>
 	  <img src="http://dummyimage.com/300x400" alt="Time of Day Image" class="flexible">
      <footer>
@@ -53,6 +54,13 @@
   </main>
  <script>
 
+/* 
+Use JavaScript to determine the current hour, and present a different image, custom message, and color based on each of the following times of day:
+Morning (5am to 12 noon)
+Afternoon (12 noon to 6pm)
+Evening (6pm to 11pm)
+Night (11pm to 5am)
+*/
 let myDate = new Date();
 let myHour = myDate.getHours();
 
@@ -66,7 +74,7 @@ if (myHour < 12) {
     myColor = "green";
 }
 
-document.getElementById("mydiv").innerHTML = mySentence;
+document.getElementById("my-greeting").innerHTML = mySentence;
 document.body.style.backgroundColor = myColor;
 
 
