@@ -34,8 +34,9 @@
       }
       img.flexible {
         display: block;
-        margin: 0 auto;
-        padding: 20px;
+        margin: 40px auto 5px auto;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        border: 2px solid rgba(99, 99, 99, 0.2);
         width: 80%; /* approximate size taken on screen in maximum view */
         border-radius: 3rem;
       }
@@ -64,12 +65,39 @@
       main {
         background-color: rgba(255, 255, 255, 0.5);
         border-radius: 10px;
-        padding: 10px;
+        padding-top: 20px;
+        margin-bottom: 20px;
       }
+
+      #my-greeting {
+        font-size: 34px;
+        font-weight: 600;
+      }
+
+      blockquote {
+        font-family: 'Georgia', serif;
+        font-size: 1.5rem;
+        font-style: italic;
+        color: #333;
+        width: 75%;
+        font-weight: 300;
+        padding: 20px 20px;
+        margin: 10px auto 30px;
+        border-left: 5px solid #303131; /* Adds a nice left border */
+
+      }
+
+      .project-explanation {
+        border-top: 2px solid black;
+        padding-top: 50px;
+        margin: 0;
+      }
+
       /* CONTACT */
 
       #contact {
         margin-top: 50px;
+        padding-top: 20px;
         display: flex;
         justify-content: center;
         flex-direction: column;
@@ -81,10 +109,10 @@
         justify-content: center;
         border-radius: 2rem;
         border: rgb(53, 53, 53) 0.1rem solid;
-        border-color: rgb(163, 163, 163);
-        background: rgb(250, 250, 250);
+        border-color: rgba(163, 163, 163, 0.5);
+        background: rgba(250, 250, 250, 0.5);
         margin: 2rem auto;
-        padding: 0.5rem;
+        padding: 0.2rem;
       }
 
       .contact-info-container {
@@ -92,7 +120,7 @@
         align-items: center;
         justify-content: center;
         gap: 0.5rem;
-        margin: 1rem;
+        margin: 0.5rem;
       }
 
       .contact-info-container p {
@@ -129,9 +157,9 @@
         background-color: rgba(255, 255, 255, 0.5);
         padding: 20px;
         text-align: center;
-        margin-top: 30px;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
+        margin-top: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
       }
       footer p {
         margin: 0;
@@ -151,7 +179,10 @@
         id="my-pic"
         class="flexible"
       />
-      <p>
+      <blockquote>
+        "Sometimes the most productive thing you can do is relax."
+      </blockquote>
+      <p class="project-explanation">
         This webpage greets users with an appropriate salutation based on the
         time of day (morning, afternoon, evening, or night) and displays a
         corresponding image and background color. The greeting and visuals
@@ -185,11 +216,11 @@
             </p>
           </div>
         </div>
+        <footer>
+          <p>&copy; Time Of Day by Victor Ulloa, All Rights Reserved. <span id="my-year"> Year goes here </span>.</p>
+        </footer>
       </section>
     </main>
-    <footer>
-      <p>&copy; 2024 by Victor Ulloa, All Rights Reserved ~</p>
-    </footer>
     <script>
       /* 
 Use JavaScript to determine the current hour, and present a different image, custom message, and color based on each of the following times of day:
@@ -199,7 +230,10 @@ Evening (6pm to 11pm)
 Night (11pm to 5am)
 */
       let myDate = new Date();
-      let myHour = myDate.getHours();
+      
+      //let myHour = myDate.getHours();
+      myYear = myDate.getFullYear();
+      let myHour = 14;
       //if (myHour >= 5 && myHour < 12)
       if (myHour >= 5 && myHour < 12) {
         // alert("Good Morning?");
@@ -210,17 +244,17 @@ Night (11pm to 5am)
       } else if (myHour >= 12 && myHour < 18) {
         // alert("Good Afternoon?");
         mySentence = 'Good Afternoon';
-        myColor = 'green';
+        myColor = '#CFB997';
         myPic = 'afternoon.jpg';
         //	(myHour >= 18 && myHour < 23)
       } else if (myHour >= 18 && myHour < 23) {
         // alert("Good Evening?");
         mySentence = 'Good Evening';
-        myColor = 'blue';
+        myColor = '#7B8FA1';
         myPic = 'evening.jpg';
       } else {
         mySentence = 'Good Night!';
-        myColor = 'Purple';
+        myColor = '#E4E0E1';
         myPic = 'night.jpg';
       }
 
@@ -229,6 +263,7 @@ Night (11pm to 5am)
       document.getElementById('my-greeting').innerHTML = mySentence;
       document.body.style.backgroundColor = myColor;
       document.getElementById('my-pic').src = myPic;
+      document.getElementById('my-year').innerHTML = myYear;
 
       document
         .getElementById('html-checker')
